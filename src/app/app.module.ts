@@ -6,10 +6,14 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthenticationComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
