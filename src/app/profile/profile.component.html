@@ -19,9 +19,11 @@
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9">
-            <div class="card card-body">
-                <h4 class="card-title">posts</h4>
-                <p class="card-text">comments</p>
+            <div *ngFor="let post of _postsArray">
+                <div class="card card-body">
+                    <h4 class="card-title">{{post.title}}</h4>
+                    <p class="card-text">{{post.body}}</p>
+                </div>
             </div>
         </div>
     </div>
