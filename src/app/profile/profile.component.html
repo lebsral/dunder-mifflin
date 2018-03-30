@@ -22,8 +22,20 @@
             <div *ngFor="let post of _postsArray">
                 <div class="card card-body">
                     <h4 class="card-title">{{post.title}}</h4>
-                    <p class="card-text">{{post.body}}</p>
+                    <p class="card-text">{{post.id}}{{post.body}}</p>
+
+
+                    <div class="card-footer">
+                        <div *ngFor="let comment of _commentsArray">
+                            <div *ngIf="comment.postId == post.id">
+                                {{comment.postId}} {{comment.name}} {{comment.email}} {{comment.body}}
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>

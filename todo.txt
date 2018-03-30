@@ -6,3 +6,8 @@ To Discuss
   dunder-mifflin to Dunder mifflin
   email username to consitently be username/email
 
+
+
+
+Possible future work
+combine get functions in API service into universal getter.
