@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-3">
+            <div class="card card-body">
+                <h4 class="card-title">
+                    Profile Detail</h4>
+                <div class="card-text">
+                    <div>
+                        <i class="fa fa-map-pin prefix black-text "></i>address
+                    </div>
+                    <div>
+                        <i class="fa fa-phone prefix black-text"></i>phone
+                    </div>
+                    <div>
+                        <i class="fa fa-envelope prefix black-text"></i>email
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9">
+            <div *ngFor="let post of _postsArray">
+                <div class="card card-body">
+                    <h4 class="card-title">{{post.title}}</h4>
+                    <p class="card-text">{{post.id}}{{post.body}}</p>
+
+
+                    <div class="card-footer">
+                        <div *ngFor="let comment of _commentsArray">
+                            <div *ngIf="comment.postId == post.id">
+                                {{comment.postId}} {{comment.name}} {{comment.email}} {{comment.body}}
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+</div>

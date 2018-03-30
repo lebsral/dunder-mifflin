@@ -1,0 +1,13 @@
+To Discuss
+
+1.  Changes made that differ from specification:
+  a.  Move email validation below email input to fit within material design spec.
+  b.  Small gramatical updates to text.
+  dunder-mifflin to Dunder mifflin
+  email username to consitently be username/email
+
+
+
+
+Possible future work
+combine get functions in API service into universal getter.
