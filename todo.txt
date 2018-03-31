@@ -8,6 +8,8 @@ To Discuss
 
 
 
+1.  Enforcing Prettier code formating
+
 
 Possible future work
 combine get functions in API service into universal getter.

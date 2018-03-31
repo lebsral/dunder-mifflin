@@ -10,7 +10,8 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "format:fix": "pretty-quick --staged",
-        "precommit": "run-s format:fix lint"
+        "precommit": "run-s format:fix lint",
+        "doc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -n \"DM Documentation\""
     },
     "private": true,
     "dependencies": {
@@ -36,6 +37,7 @@
         "@angular/cli": "~1.7.3",
         "@angular/compiler-cli": "^5.2.0",
         "@angular/language-service": "^5.2.0",
+        "@compodoc/compodoc": "^1.1.1",
         "@types/jasmine": "~2.8.3",
         "@types/jasminewd2": "~2.0.2",
         "@types/node": "~6.0.60",
