@@ -11,41 +11,33 @@ import { Posts } from './../models/posts';
   providers: [ApiService]
 })
 export class ProfileComponent implements OnInit {
-
   _postsArray: Posts[];
   _usersArray: Users[];
   _commentsArray: Comments[];
 
-  constructor(private apiSerivce: ApiService) { }
+  constructor(private apiSerivce: ApiService) {}
 
   getPosts(): void {
-    this.apiSerivce.getPosts()
-        .subscribe(
-            resultArray => this._postsArray = resultArray,
-            error => console.log('Error :: ' + error)
-        );
-}
+    this.apiSerivce
+      .getPosts()
+      .subscribe(resultArray => (this._postsArray = resultArray), error => console.log('Error :: ' + error));
+  }
 
-getUsers(): void {
-  this.apiSerivce.getUsers()
-      .subscribe(
-          resultArray => this._usersArray = resultArray,
-          error => console.log('Error :: ' + error)
-      );
-}
+  getUsers(): void {
+    this.apiSerivce
+      .getUsers()
+      .subscribe(resultArray => (this._usersArray = resultArray), error => console.log('Error :: ' + error));
+  }
 
-getComments(): void {
-  this.apiSerivce.getComments()
-      .subscribe(
-          resultArray => this._commentsArray = resultArray,
-          error => console.log('Error :: ' + error)
-      );
-}
+  getComments(): void {
+    this.apiSerivce
+      .getComments()
+      .subscribe(resultArray => (this._commentsArray = resultArray), error => console.log('Error :: ' + error));
+  }
 
   ngOnInit() {
     this.getPosts();
     this.getComments();
     this.getUsers();
   }
-
 }

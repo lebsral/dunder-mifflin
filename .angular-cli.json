@@ -6,10 +6,7 @@
     "apps": [{
         "root": "src",
         "outDir": "dist",
-        "assets": [
-            "assets",
-            "favicon.ico"
-        ],
+        "assets": ["assets", "favicon.ico"],
         "index": "index.html",
         "main": "main.ts",
         "polyfills": "polyfills.ts",
@@ -23,10 +20,7 @@
             "../node_modules/angular-bootstrap-md/scss/mdb-free.scss",
             "./styles.scss"
         ],
-        "scripts": [
-            "../node_modules/chart.js/dist/Chart.js",
-            "../node_modules/hammerjs/hammer.min.js"
-        ],
+        "scripts": ["../node_modules/chart.js/dist/Chart.js", "../node_modules/hammerjs/hammer.min.js"],
         "environmentSource": "environments/environment.ts",
         "environments": {
             "dev": "environments/environment.ts",
