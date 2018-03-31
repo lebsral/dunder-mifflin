@@ -3,6 +3,7 @@ import { ApiService } from './../api.service';
 import { Comments } from './../models/comments';
 import { Users } from './../models/users';
 import { Posts } from './../models/posts';
+import { DataShareService } from '../data-share.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,8 +15,16 @@ export class ProfileComponent implements OnInit {
   _postsArray: Posts[];
   _usersArray: Users[];
   _commentsArray: Comments[];
+  email: string;
 
-  constructor(private apiSerivce: ApiService) {}
+  constructor(private apiSerivce: ApiService, private data: DataShareService) {}
+
+  ngOnInit() {
+    this.getPosts();
+    this.getComments();
+    this.getUsers();
+    this.data.currentEmail.subscribe(email => (this.email = email));
+  }
 
   getPosts(): void {
     this.apiSerivce
@@ -35,9 +44,7 @@ export class ProfileComponent implements OnInit {
       .subscribe(resultArray => (this._commentsArray = resultArray), error => console.log('Error :: ' + error));
   }
 
-  ngOnInit() {
-    this.getPosts();
-    this.getComments();
-    this.getUsers();
+  newEmail() {
+    this.data.changeEmail('koooooooj@alskdjf.com');
   }
 }

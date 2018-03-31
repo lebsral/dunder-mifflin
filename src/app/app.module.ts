@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DataShareService } from './data-share.service';
 
 @NgModule({
   declarations: [AppComponent, AuthenticationComponent, ProfileComponent],
@@ -20,7 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
     MDBBootstrapModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [DataShareService],
   schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
 })

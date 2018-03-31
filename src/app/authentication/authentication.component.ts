@@ -1,3 +1,4 @@
+import { DataShareService } from './../data-share.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./authentication.component.scss']
 })
 export class AuthenticationComponent implements OnInit {
-  constructor() {}
+  email: string;
+  constructor(private data: DataShareService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.data.currentEmail.subscribe(email => (this.email = email));
+  }
 }
