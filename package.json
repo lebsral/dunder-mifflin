@@ -11,7 +11,8 @@
         "e2e": "ng e2e",
         "format:fix": "pretty-quick --staged",
         "precommit": "run-s format:fix lint",
-        "doc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -n \"DM Documentation\""
+        "doc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -n \"DM Documentation\"",
+        "coverage": "ng test --watch=false --code-coverage"
     },
     "private": true,
     "dependencies": {
