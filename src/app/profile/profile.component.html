@@ -4,17 +4,34 @@
             <div class="card card-body">
                 <h4 class="card-title">
                     Profile Detail</h4>
+                <hr>
                 <div class="card-text">
-                    <div>
-                        <i class="fa fa-map-pin prefix black-text "></i>address
+                    <div *ngFor="let user of _usersArray">
+                        <div *ngIf="user.email == email">
+                            <h5 class="black-text">{{user.name}}</h5>
+                            <div class="row">
+                                <i class="fa fa-map-pin prefix black-text col-2"></i>
+                                <div class="col-10"> {{user.address.street}} {{user.address.suite}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <span class="col-2"></span>
+                                <div class="col-10"> {{user.address.city}} {{user.address.zipcode}}</div>
+                            </div>
+
+                            <div class="row">
+                                <i class="fa fa-phone prefix black-text col-2"></i>
+                                <div class="col-10"> {{user.phone}}</div>
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-envelope prefix black-text col-2"></i>
+                                <div class="col-10">
+                                    <a href="mailto:{{email}}" target="_top">{{email}}</a>
+                                </div>
+                            </div>
+                            <a routerLink="/" routerLinkActive="active">Change</a>
+                        </div>
                     </div>
-                    <div>
-                        <i class="fa fa-phone prefix black-text"></i>phone
-                    </div>
-                    <div>
-                        <i class="fa fa-envelope prefix black-text"></i> {{email}}
-                    </div>
-                    <a routerLink="/" routerLinkActive="active">Change</a>
                 </div>
             </div>
         </div>
@@ -25,8 +42,13 @@
                     <p class="card-text">{{post.id}}{{post.body}}</p>
                     <div class="card-footer">
                         <div *ngFor="let comment of _commentsArray">
+
                             <div *ngIf="comment.postId == post.id">
-                                {{comment.postId}} {{comment.name}} {{comment.email}} {{comment.body}}
+                                <hr>
+                                <span> {{comment.postId}}  {{comment.body}}</span>
+                                <span> ― {{comment.name}}
+                                    <a href="mailto:{{comment.email}}" target="_top"> {{comment.email}}</a>
+                                  </span>
                             </div>
                         </div>
                     </div>
