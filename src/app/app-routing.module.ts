@@ -6,20 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent },
-  { path: 'authentication',     component: AuthenticationComponent },
-  { path: '',   redirectTo: '/authentication', pathMatch: 'full' },
+  { path: 'authentication', component: AuthenticationComponent },
+  { path: '', redirectTo: '/authentication', pathMatch: 'full' }
   // { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true }
-    )
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(appRoutes, { enableTracing: true })],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

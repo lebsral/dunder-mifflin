@@ -1,8 +1,8 @@
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import {HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
@@ -12,11 +12,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AuthenticationComponent,
-    ProfileComponent
-  ],
+  declarations: [AppComponent, AuthenticationComponent, ProfileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,7 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
-  schemas: [ NO_ERRORS_SCHEMA ],
+  schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
