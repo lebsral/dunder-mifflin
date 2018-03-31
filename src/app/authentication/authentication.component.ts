@@ -13,4 +13,9 @@ export class AuthenticationComponent implements OnInit {
   ngOnInit() {
     this.data.currentEmail.subscribe(email => (this.email = email));
   }
+
+  newEmail(newEmail: string) {
+    console.log('in new email');
+    this.data.changeEmail(newEmail);
+  }
 }

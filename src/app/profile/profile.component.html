@@ -8,37 +8,29 @@
                     <div>
                         <i class="fa fa-map-pin prefix black-text "></i>address
                     </div>
-                    {{email}}
-                    <a routerLink="/" routerLinkActive="active">Heroes</a>
-                    <button (click)="newEmail()">New Email</button>
                     <div>
                         <i class="fa fa-phone prefix black-text"></i>phone
                     </div>
                     <div>
-                        <i class="fa fa-envelope prefix black-text"></i>email
+                        <i class="fa fa-envelope prefix black-text"></i> {{email}}
                     </div>
+                    <a routerLink="/" routerLinkActive="active">Change</a>
                 </div>
             </div>
         </div>
-
         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9">
             <div *ngFor="let post of _postsArray">
                 <div class="card card-body">
                     <h4 class="card-title">{{post.title}}</h4>
                     <p class="card-text">{{post.id}}{{post.body}}</p>
-
-
                     <div class="card-footer">
                         <div *ngFor="let comment of _commentsArray">
                             <div *ngIf="comment.postId == post.id">
                                 {{comment.postId}} {{comment.name}} {{comment.email}} {{comment.body}}
-
                             </div>
                         </div>
-
                     </div>
                 </div>
-                <!-- </div> -->
             </div>
         </div>
     </div>

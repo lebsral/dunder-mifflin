@@ -3,22 +3,21 @@
         <div class="col-xs-0 col-sm-1 col-md-2 col-lg-3"></div>
         <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
             <h2 class="text-center">Welcome to Dunder Mifflin</h2>
-
-            {{email}}
-            <input [(ngModel)]="email">a
             <p class="text-center">Welcome to the Dunder Mifflin internal network.</p>
             <p class="text-center">Please enter a username/email to view your posts and comments.</p>
             <form>
                 <div class="md-form">
 
                     <i class="fa fa-envelope prefix grey-text"></i>
-                    <input data-error="Invalid Email" data-success="valid email" type="email" id="defaultForm-email" class="form-control" mdbInputValidate mdbActive>
+                    <input #emailInput value="{{email}}" data-error="Invalid Email" (keyup)="newEmail(emailInput.value)" (change)="newEmail(emailInput.value)" (blur)="newEmail(emailInput.value)" data-success="valid email" type="email" id="defaultForm-email" class="form-control"
+                        mdbInputValidate mdbActive>
                     <label for="defaultForm-email">Your username/email</label>
                 </div>
                 <div class="text-center">
                     <button class="btn btn-default waves-light" mdbRippleRadius>Login</button>
                 </div>
             </form>
+            <a routerLink="/profile" routerLinkActive="active">profile</a>
         </div>
         <div class="col-xs-0 col-sm-1 col-md-2 col-lg-3"></div>
     </div>

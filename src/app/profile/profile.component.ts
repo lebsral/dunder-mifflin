@@ -43,8 +43,4 @@ export class ProfileComponent implements OnInit {
       .getComments()
       .subscribe(resultArray => (this._commentsArray = resultArray), error => console.log('Error :: ' + error));
   }
-
-  newEmail() {
-    this.data.changeEmail('koooooooj@alskdjf.com');
-  }
 }
