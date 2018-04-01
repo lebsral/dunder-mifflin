@@ -13,3 +13,5 @@ To Discuss
 
 Possible future work
 combine get functions in API service into universal getter.
+2. Add 404 page
+

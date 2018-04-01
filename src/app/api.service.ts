@@ -13,13 +13,19 @@ export class ApiService {
   private _postsURL = 'https://jsonplaceholder.typicode.com/posts';
   private _commentsURL = 'https://jsonplaceholder.typicode.com/comments';
 
+  public users: any;
+  public posts: any;
+  public comments: any;
+
   constructor(private http: Http) {}
 
   getUsers(): Observable<Users[]> {
     return this.http
       .get(this._usersURL)
       .map((response: Response) => {
-        return <Users[]>response.json();
+        this.users = <Users[]>response.json();
+        return this.users;
+        // return <Users[]>response.json();
       })
       .catch(this.handleError);
   }
@@ -28,7 +34,9 @@ export class ApiService {
     return this.http
       .get(this._postsURL)
       .map((response: Response) => {
-        return <Posts[]>response.json();
+        this.posts = <Posts[]>response.json();
+        return this.posts;
+        // return <Posts[]>response.json();
       })
       .catch(this.handleError);
   }
@@ -37,7 +45,8 @@ export class ApiService {
     return this.http
       .get(this._commentsURL)
       .map((response: Response) => {
-        return <Comments[]>response.json();
+        this.comments = <Comments[]>response.json();
+        return this.comments;
       })
       .catch(this.handleError);
   }
