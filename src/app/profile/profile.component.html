@@ -29,7 +29,7 @@
                                     <a href="mailto:{{email}}" target="_top">{{email}}</a>
                                 </div>
                             </div>
-                            <a routerLink="/" routerLinkActive="active">Change</a>
+                            <button class="btn btn-sm btn-block btn-outline-default waves-effect" routerLink="/" routerLinkActive="active" mdbRippleRadius>Change email</button>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,6 @@
                     <p class="card-text">{{post.id}}{{post.body}}</p>
                     <div class="card-footer">
                         <div *ngFor="let comment of _commentsArray">
-
                             <div *ngIf="comment.postId == post.id">
                                 <hr>
                                 <span> {{comment.postId}}  {{comment.body}}</span>

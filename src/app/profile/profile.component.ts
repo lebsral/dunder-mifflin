@@ -20,9 +20,9 @@ export class ProfileComponent implements OnInit {
   constructor(private apiSerivce: ApiService, private data: DataShareService) {}
 
   ngOnInit() {
+    this.getUsers();
     this.getPosts();
     this.getComments();
-    this.getUsers();
     this.data.currentEmail.subscribe(email => (this.email = email));
   }
 
