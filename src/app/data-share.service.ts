@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class DataShareService {
-  private emailSource = new BehaviorSubject<string>('');
+  private emailSource = new BehaviorSubject<string>('Sincere@april.biz');
   currentEmail = this.emailSource.asObservable();
 
   constructor() {}
