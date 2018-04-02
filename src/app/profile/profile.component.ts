@@ -12,14 +12,14 @@ import { DataShareService } from '../data-share.service';
 })
 export class ProfileComponent implements OnInit {
   _postsArray: Posts[];
-  // _usersArray: Users[];
+  _usersArray: Users[];
   _commentsArray: Comments[];
   email: string;
 
   constructor(private apiSerivce: ApiService, private data: DataShareService) {}
 
   ngOnInit() {
-    // this.getUsers();
+    this.getUsers();
     this.getPosts();
     this.getComments();
     this.data.currentEmail.subscribe(email => (this.email = email));
@@ -31,11 +31,11 @@ export class ProfileComponent implements OnInit {
       .subscribe(resultArray => (this._postsArray = resultArray), error => console.log('Error :: ' + error));
   }
 
-  // getUsers(): void {
-  //   this.apiSerivce
-  //     .getUsers()
-  //     .subscribe(resultArray => (this._usersArray = resultArray), error => console.log('Error :: ' + error));
-  // }
+  getUsers(): void {
+    this.apiSerivce
+      .getUsers()
+      .subscribe(resultArray => (this._usersArray = resultArray), error => console.log('Error :: ' + error));
+  }
 
   getComments(): void {
     this.apiSerivce

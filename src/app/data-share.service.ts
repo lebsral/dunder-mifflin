@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class DataShareService {
   private emailSource = new BehaviorSubject<string>('Sincere@april.biz');
   currentEmail = this.emailSource.asObservable();
+  // Sincere@april.biz
 
   constructor() {}
 

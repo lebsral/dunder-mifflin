@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import { Users } from './models/users';
 import { Posts } from './models/posts';
 import { Comments } from './models/comments';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class ApiService {
@@ -17,6 +18,11 @@ export class ApiService {
   public posts: any;
   public comments: any;
 
+  public _usersArray: Users[];
+
+  private userSource = new BehaviorSubject<Users[]>([]);
+  currentUser = this.userSource.asObservable();
+
   constructor(private http: Http) {}
 
   getUsers(): Observable<Users[]> {
@@ -24,7 +30,9 @@ export class ApiService {
       .get(this._usersURL)
       .map((response: Response) => {
         this.users = <Users[]>response.json();
-        return this.users;
+        this._usersArray = <Users[]>response.json();
+        this.userSource.next(<Users[]>response.json());
+        return this._usersArray;
         // return <Users[]>response.json();
       })
       .catch(this.handleError);
