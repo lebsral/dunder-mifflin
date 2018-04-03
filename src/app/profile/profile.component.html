@@ -37,17 +37,19 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9">
             <div *ngFor="let post of _postsArray">
-                <div class="card card-body">
-                    <h4 class="card-title">{{post.title}}</h4>
-                    <p class="card-text">{{post.id}}{{post.body}}</p>
-                    <div class="card-footer">
-                        <div *ngFor="let comment of _commentsArray">
-                            <div *ngIf="comment.postId == post.id">
-                                <hr>
-                                <span> {{comment.postId}}  {{comment.body}}</span>
-                                <span> ― {{comment.name}}
+                <div *ngIf="myUser.id == post.userId">
+                    <div class="card card-body">
+                        <h4 class="card-title">{{post.title}}</h4>
+                        <p class="card-text">{{post.id}}{{post.body}}</p>
+                        <div class="card-footer">
+                            <div *ngFor="let comment of _commentsArray">
+                                <div *ngIf="comment.postId == post.id">
+                                    <hr>
+                                    <span> {{comment.postId}}  {{comment.body}}</span>
+                                    <span> ― {{comment.name}}
                                     <a href="mailto:{{comment.email}}" target="_top"> {{comment.email}}</a>
                                   </span>
+                                </div>
                             </div>
                         </div>
                     </div>

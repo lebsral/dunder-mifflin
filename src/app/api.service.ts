@@ -7,12 +7,6 @@ import { Users } from './models/users';
 import { Posts } from './models/posts';
 import { Comments } from './models/comments';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import 'rxjs/add/operator/mergeMap';
-// import 'rxjs/add/operator/forkJoin'
-// import { forkJoin } from 'rxjs/observable/forkJoin';
-// import {forkJoin} from 'rxjs/observable/forkJoin';
-import 'rxjs/observable/forkJoin';
-import { forkJoin } from 'rxjs/observable/forkJoin';
 
 @Injectable()
 export class ApiService {
@@ -20,27 +14,22 @@ export class ApiService {
   private _postsURL = 'https://jsonplaceholder.typicode.com/posts';
   private _commentsURL = 'https://jsonplaceholder.typicode.com/comments';
 
-  public users: any;
-  public posts: any;
-  public comments: any;
-
+  public _commentsArray: Comments[];
+  public _postsArray: Posts[];
   public _usersArray: Users[];
 
   private userSource = new BehaviorSubject<Users[]>([]);
   currentUser = this.userSource.asObservable();
 
   constructor(private http: Http) {}
-  //
 
   getUsers(): Observable<Users[]> {
     return this.http
       .get(this._usersURL)
       .map((response: Response) => {
-        this.users = <Users[]>response.json();
         this._usersArray = <Users[]>response.json();
         this.userSource.next(<Users[]>response.json());
         return this._usersArray;
-        // return <Users[]>response.json();
       })
       .catch(this.handleError);
   }
@@ -49,9 +38,8 @@ export class ApiService {
     return this.http
       .get(this._postsURL)
       .map((response: Response) => {
-        this.posts = <Posts[]>response.json();
-        return this.posts;
-        // return <Posts[]>response.json();
+        this._postsArray = <Posts[]>response.json();
+        return this._postsArray;
       })
       .catch(this.handleError);
   }
@@ -60,8 +48,8 @@ export class ApiService {
     return this.http
       .get(this._commentsURL)
       .map((response: Response) => {
-        this.comments = <Comments[]>response.json();
-        return this.comments;
+        this._commentsArray = <Comments[]>response.json();
+        return this._commentsArray;
       })
       .catch(this.handleError);
   }

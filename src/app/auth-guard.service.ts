@@ -15,9 +15,6 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate() {
-    console.log(this.email);
-    console.log(this._usersArray);
-
     const hastheEmail = this._usersArray.some(user => user['email'] === this.email);
     if (hastheEmail) {
       return true;
