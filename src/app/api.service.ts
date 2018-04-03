@@ -7,6 +7,12 @@ import { Users } from './models/users';
 import { Posts } from './models/posts';
 import { Comments } from './models/comments';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import 'rxjs/add/operator/mergeMap';
+// import 'rxjs/add/operator/forkJoin'
+// import { forkJoin } from 'rxjs/observable/forkJoin';
+// import {forkJoin} from 'rxjs/observable/forkJoin';
+import 'rxjs/observable/forkJoin';
+import { forkJoin } from 'rxjs/observable/forkJoin';
 
 @Injectable()
 export class ApiService {
@@ -24,6 +30,7 @@ export class ApiService {
   currentUser = this.userSource.asObservable();
 
   constructor(private http: Http) {}
+  //
 
   getUsers(): Observable<Users[]> {
     return this.http

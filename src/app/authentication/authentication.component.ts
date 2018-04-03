@@ -16,14 +16,9 @@ export class AuthenticationComponent implements OnInit {
   ngOnInit() {
     this.data.currentEmail.subscribe(email => (this.email = email));
     this.api.currentUser.subscribe(_usersArray => (this._usersArray = _usersArray));
-    this._usersArray = this.api._usersArray;
-    // console.log(this.email);
-    // console.log(this._usersArray);
   }
 
   newEmail(newEmail: string) {
-    console.log(this.email);
-    console.log(this._usersArray);
     this.data.changeEmail(newEmail);
   }
 }
