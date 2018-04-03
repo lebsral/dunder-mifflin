@@ -14,9 +14,10 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { ProfileComponent } from './profile/profile.component';
 import { DataShareService } from './data-share.service';
 import { ApiService } from './api.service';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthenticationComponent, ProfileComponent],
+  declarations: [AppComponent, AuthenticationComponent, ProfileComponent, HeaderComponent],
   imports: [
     BrowserModule,
     FormsModule,

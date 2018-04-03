@@ -13,4 +13,5 @@ Possible future work
 2. Add 404 page
 3. Hitting API mulitple times during app.  Consider caching.
 4. Unit testing.
+5. Replace  alert('That email does not exist.'); with a modern toast style message.
 
