@@ -24,7 +24,6 @@ export class ProfileComponent implements OnInit {
     this.getComments();
     this.data.currentEmail.subscribe(email => (this.email = email));
     this.apiService.currentUser.subscribe(_usersArray => (this._usersArray = _usersArray));
-    // Sincere@april.biz
     this.myUser = this._usersArray.find(user => user['email'] === this.email);
   }
 

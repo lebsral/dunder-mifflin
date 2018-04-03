@@ -5,6 +5,7 @@ To Discuss
   b.  Small gramatical updates to text.
   c. dunder-mifflin to Dunder mifflin
   d. Email username to consitently be username/email
+
 2.   Enforcing Prettier code formating
 
 
