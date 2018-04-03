@@ -3,13 +3,16 @@ To Discuss
 1.  Changes made that differ from specification:
   a.  Move email validation below email input to fit within material design spec.
   b.  Small gramatical updates to text.
-  dunder-mifflin to Dunder mifflin
-  email username to consitently be username/email
+  c. dunder-mifflin to Dunder mifflin
+  d. Email username to consitently be username/email
 
-
-
-1.  Enforcing Prettier code formating
+2.   Enforcing Prettier code formating
 
 
 Possible future work
-combine get functions in API service into universal getter.
+1. Combine get functions in API service into universal getter.
+2. Add 404 page
+3. Hitting API mulitple times during app.  Consider caching.
+4. Unit testing.
+5. Replace  alert('That email does not exist.'); with a modern toast style message.
+

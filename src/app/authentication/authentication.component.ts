@@ -1,3 +1,4 @@
+import { ApiService } from './../api.service';
 import { DataShareService } from './../data-share.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,14 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthenticationComponent implements OnInit {
   email: string;
-  constructor(private data: DataShareService) {}
+  _usersArray: any;
+
+  constructor(private data: DataShareService, private api: ApiService) {}
 
   ngOnInit() {
     this.data.currentEmail.subscribe(email => (this.email = email));
+    this.api.currentUser.subscribe(_usersArray => (this._usersArray = _usersArray));
   }
 
   newEmail(newEmail: string) {
-    console.log('in new email');
     this.data.changeEmail(newEmail);
   }
 }
